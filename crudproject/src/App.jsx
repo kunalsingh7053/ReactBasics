@@ -6,12 +6,6 @@ import SplashCursor from "../Reactbit/SplashCursor/SplashCursor";
 import TextPressure from "../Textanimation/TextPressure/TextPressure";
 const App = () => {
 
-  const [todos, settodos] = useState([
-    {title:"kam kar le bhai",
-      id:1,
-      iscompleted:false
-    }
-  ])
 
  
   return (
@@ -21,8 +15,8 @@ const App = () => {
     <TextPressure />
   </div>
     <div className="flex  h-[90%] ">
-        <Create todos={todos} settodos={settodos} />
-        <Read todos={todos} settodos={settodos} />
+        <Create  />
+        <Read />
       </div>
     </div>
   )
