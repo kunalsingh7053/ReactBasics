@@ -1,23 +1,13 @@
-import { Routes, Route } from "react-router-dom";
-import Home from "./components/Home"; 
-import Product from "./components/Product"; 
-import Service from "./components/Service"; 
-import About from "./components/About"; 
 import Nav from "./components/Nav";
-
+import Mainroutes from "./routes/Mainroutes";
 
 const App = () => {
   return (
-    <div className="h-screen w-screen bg-black text-white">
+    <div className="h-screen w-screen bg-black text-white px-[10%]">
       <Nav/>
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/Product" element={<Product/>}/>
-        <Route path="/Service" element={<Service/>}/>
-        <Route path="/About" element={<About/>}/>
-      </Routes>
-
+      <Mainroutes/>
     </div>
+  
   )
 }
 
