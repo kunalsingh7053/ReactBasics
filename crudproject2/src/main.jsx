@@ -5,12 +5,16 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import { ToastContainer } from 'react-toastify'
 import Recipeprovider from './context/Recipeprovider.jsx'
+
+
+
 createRoot(document.getElementById('root')).render(
     <>
     <Recipeprovider>
     <BrowserRouter>
     <App />
-    <ToastContainer/>
+
+    <ToastContainer position='top-center'/>
     </BrowserRouter>
 
     </Recipeprovider>
