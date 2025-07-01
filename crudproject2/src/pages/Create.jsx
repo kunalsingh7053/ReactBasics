@@ -16,12 +16,13 @@ reset,
 }=useForm();
  const submithandler =(recipe)=>{
 
-recipe.id = nanoid();
-setdata([...data,recipe]);
-
-reset();
-toast.success("Recipe Created Succcessfully!")
-navigate('/recipes');
+ const newRecipe = { ...recipe, id: nanoid() }; // ✅ add id safely
+  const copydata = [...data, newRecipe];         // ✅ copy existing data + new recipe
+  setdata(copydata);
+  localStorage.setItem("recipes", JSON.stringify(copydata));
+  reset();
+  toast.success("Recipe Created Successfully!");
+  navigate('/recipes');
  }
   return (
     <div className='min-h-full w-full flex  justify-center overflow-hidden text-white '>
@@ -33,10 +34,11 @@ navigate('/recipes');
        <textarea {...register("desc")} className='border border-gray-300 rounded p-2  w-[80%]' placeholder='Recipe Description'></textarea>
        <textarea {...register("ingr")} className='border border-gray-300 rounded p-2 w-[80%]' placeholder='Recipe Ingredients'></textarea>
        <textarea {...register("inst")} className='border border-gray-300 rounded p-2  w-[80%]' placeholder='Recipe Instructions'></textarea>
-       <select {...register("category")} className='border border-gray-300 rounded p-2  w-[80%]'>
-         <option value="dinner">Dinner</option>
+       <select {...register("category")} className='bg-[#0F172B] border border-gray-300 rounded p-2  w-[80%]'>
+         <option  value="dinner">Dinner</option>
          <option value="lunch">Lunch</option>
-         <option value="Starter">Starter</option>
+         <option value="starter">Starter</option>
+         <option value="breakfast">Breakfast</option>
        </select>
        <button className='bg-blue-500 px-8 py-2 rounded w-[80%]'>Create</button>
     </form>

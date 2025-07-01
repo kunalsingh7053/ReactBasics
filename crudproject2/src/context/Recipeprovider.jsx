@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { createContext } from 'react';
+
 export const recipecontext  = createContext(null);
 const Recipeprovider = (props) => {
     const [data,setdata]  = useState([
@@ -50,7 +51,7 @@ desc:"Bake in the preheated oven for 12-15 minutes or until the crust is golden 
     ],
     desc: "A viral spicy Korean ramen dish with bold flavors and simple steps.",
     url: "https://cdn.dummyjson.com/recipe-images/2.webp",
-    category: "Dinner"
+    category: "dinner"
   },
   {
     id: 3,
@@ -71,7 +72,7 @@ desc:"Bake in the preheated oven for 12-15 minutes or until the crust is golden 
     ],
     desc: "The internet-famous whipped coffee sensation from quarantine days.",
     url: "https://cdn.dummyjson.com/recipe-images/3.webp",
-    category: "Beverage"
+    category: "breakfast"
   },
   {
     id: 4,
@@ -93,7 +94,7 @@ desc:"Bake in the preheated oven for 12-15 minutes or until the crust is golden 
     ],
     desc: "A fusion street-food hit combining Indian naan with taco fun.",
     url: "https://cdn.dummyjson.com/recipe-images/4.webp",
-    category: "Lunch"
+    category: "dinner"
   },
   {
     id: 5,
@@ -114,7 +115,7 @@ desc:"Bake in the preheated oven for 12-15 minutes or until the crust is golden 
     ],
     desc: "Fun-sized mini pancakes served in a cereal bowl — viral breakfast trend.",
     url: "https://cdn.dummyjson.com/recipe-images/5.webp",
-    category: "Breakfast"
+    category: "breakfast"
   },
   {
     id: 6,
@@ -136,9 +137,12 @@ desc:"Bake in the preheated oven for 12-15 minutes or until the crust is golden 
     ],
     desc: "A spicy street-style twist to regular Maggi noodles with tandoori flair.",
     url: "https://cdn.dummyjson.com/recipe-images/6.webp",
-    category: "Snack"
+    category: "breakfast"
   }
     ]);
+useEffect(()=>{
+setdata(JSON.parse(localStorage.getItem("recipes"))||[]);
+},[])
   return (
     <recipecontext.Provider value={ [data,setdata] }>
 {props.children}

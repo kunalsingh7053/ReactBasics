@@ -20,6 +20,9 @@ const Navs = () => {
       <NavLink className={(e)=>e.isActive?"text-red-400":""} to="/create">
         Create
       </NavLink>
+      <NavLink className={(e)=>e.isActive?"text-red-400":""} to="/fav">
+        Favourite
+      </NavLink>
      </div>
     </div>
   )
