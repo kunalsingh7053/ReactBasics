@@ -1,9 +1,15 @@
+import FuzzyText from '../../fuzzy/FuzzyText/FuzzyText';
 
 const PageNotFound = () => {
   return (
-    <div className="w-full  text-center ">
-      <h1 className="font-thin text-2xl sm:text-4xl md:text-6xl mt-10 text-red-400">      Page Not Found
-</h1>
+    <div className="w-full  text-center flex justify-center ">
+       <FuzzyText
+    fontSize="clamp(1.5rem, 5vw, 3rem)"
+    fontWeight={700}
+    color="red"
+  >
+    Page Not Found
+  </FuzzyText>
     </div>
   )
 }
