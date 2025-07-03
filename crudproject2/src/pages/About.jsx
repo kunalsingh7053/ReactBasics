@@ -97,7 +97,7 @@ const About = () => {
               ))}
             </ul>
             <br />
-            Thank you for visiting! I hope you find a recipe you ’ ll love and enjoy the experience as much as I enjoyed building it.
+            Thank you for visiting ! I hope you find a recipe you ’ ll love and enjoy the experience as much as I enjoyed building it.
           </p>
 
           <small

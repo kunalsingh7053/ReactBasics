@@ -14,6 +14,8 @@ const Create = () => {
     register,
     handleSubmit,
     reset,
+      formState: { errors },
+
   } = useForm();
 
   const formRef = useRef();
@@ -47,9 +49,15 @@ const Create = () => {
         <h1 className="font-bold text-2xl sm:text-2xl md:text-3xl lg:text-4xl">
           Create Your Recipe
         </h1>
-        <input {...register('url')} className="border border-gray-300 rounded p-2 w-[90%]" type="url" placeholder="Enter image url" />
-        <input {...register('title')} className="border border-gray-300 rounded p-2 w-[90%]" type="text" placeholder="Recipe Title" />
-        <input {...register('chef')} className="border border-gray-300 rounded p-2 w-[90%]" type="text" placeholder="Creator Name" />
+        <input {...register('url',{ required: 'Image URL is required' })} className="border border-gray-300 rounded p-2 w-[90%]" type="url" placeholder="Enter image url" />
+        {errors.url && <span className=" text-red-500 text-sm font-thin ">{errors.url.message}</span>}
+
+        <input {...register('title',{required:'recipe title is required'})} className="border border-gray-300 rounded p-2 w-[90%]" type="text" placeholder="Recipe Title" />
+                {errors.title && <span className=" text-red-500 text-sm font-thin ">{errors.title.message}</span>}
+
+        <input {...register('chef',{required:'chef name is required'})} className="border border-gray-300 rounded p-2 w-[90%]" type="text" placeholder="Creator Name" />
+                        {errors.chef && <span className=" text-red-500 text-sm font-thin ">{errors.chef.message}</span>}
+
         <textarea {...register('desc')} className="border border-gray-300 rounded p-2 w-[90%]" placeholder="Recipe Description"></textarea>
         <textarea {...register('ingr')} className="border border-gray-300 rounded p-2 w-[90%]" placeholder="Recipe Ingredients"></textarea>
         <textarea {...register('inst')} className="border border-gray-300 rounded p-2 w-[90%]" placeholder="Recipe Instructions"></textarea>

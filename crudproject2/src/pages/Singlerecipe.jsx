@@ -47,7 +47,7 @@ const recipe = data.find((recipe)=> param.id == recipe.id)
           localStorage.setItem("recipes", JSON.stringify(filterdata));
           localStorage.setItem("fav", JSON.stringify(filterfav));
 
-        toast.error("Recipe Deleted Succcessfully!")
+        toast.success("Recipe Deleted Succcessfully!")
         navigate('/recipes')
      }
      
